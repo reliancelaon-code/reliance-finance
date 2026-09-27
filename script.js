@@ -9,14 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const loanForm = document.getElementById("loanForm");
 
+    const successMessage = document.getElementById("successMessage");
+    const successCloseBtn = document.getElementById("successCloseBtn");
+
 
     // OPEN FORM
     function openLoanForm() {
+
         if (loanModal) {
             loanModal.style.display = "flex";
             document.body.style.overflow = "hidden";
         }
+
     }
+
 
     if (applyBtn) {
         applyBtn.addEventListener("click", openLoanForm);
@@ -33,21 +39,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // CLOSE FORM
     if (closeBtn) {
+
         closeBtn.addEventListener("click", function () {
+
             loanModal.style.display = "none";
             document.body.style.overflow = "auto";
+
         });
+
     }
 
 
     // CLOSE OUTSIDE
     if (loanModal) {
+
         loanModal.addEventListener("click", function (event) {
+
             if (event.target === loanModal) {
+
                 loanModal.style.display = "none";
                 document.body.style.overflow = "auto";
+
             }
+
         });
+
+    }
+
+
+    // CLOSE SUCCESS MESSAGE
+    if (successCloseBtn) {
+
+        successCloseBtn.addEventListener("click", function () {
+
+            if (successMessage) {
+                successMessage.style.display = "none";
+            }
+
+        });
+
     }
 
 
@@ -58,64 +88,120 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
+
             const application = {
+
                 name: document.getElementById("name").value.trim(),
-                loanAmount: document.getElementById("loanAmount").value,
-                mobile: document.getElementById("mobile").value.trim(),
-                email: document.getElementById("email").value.trim(),
-                state: document.getElementById("state").value,
-                loanType: document.getElementById("loanType").value,
-                monthlyIncome: document.getElementById("monthlyIncome").value
+
+                loanAmount:
+                    document.getElementById("loanAmount").value,
+
+                mobile:
+                    document.getElementById("mobile").value.trim(),
+
+                email:
+                    document.getElementById("email").value.trim(),
+
+                state:
+                    document.getElementById("state").value,
+
+                loanType:
+                    document.getElementById("loanType").value,
+
+                monthlyIncome:
+                    document.getElementById("monthlyIncome").value
+
             };
 
 
+            // NAME
             if (!application.name) {
+
                 alert("Please enter your name.");
+
                 return;
+
             }
 
+
+            // MOBILE
             if (!/^[0-9]{10}$/.test(application.mobile)) {
+
                 alert("Please enter a valid 10-digit mobile number.");
+
                 return;
+
             }
 
+
+            // EMAIL
             if (!application.email) {
+
                 alert("Please enter your email.");
+
                 return;
+
             }
 
+
+            // LOAN AMOUNT
             if (!application.loanAmount) {
+
                 alert("Please enter loan amount.");
+
                 return;
+
             }
 
 
             try {
 
-                const response = await fetch("/submit-application", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(application)
-                });
+                const response = await fetch(
+                    "/submit-application",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify(application)
+                    }
+                );
+
 
                 const result = await response.json();
 
+
+                // SUCCESS
                 if (result.success) {
 
-                   alert("Submit Successful\n\nYour application has been submitted successfully.\nPlease allow up to 24 hours for processing.");
-
+                    // FORM RESET
                     loanForm.reset();
 
+
+                    // CLOSE APPLICATION FORM
                     loanModal.style.display = "none";
                     document.body.style.overflow = "auto";
 
-                } else {
+
+                    // SHOW WEBSITE SUCCESS MESSAGE
+                    if (successMessage) {
+
+                        successMessage.style.display = "flex";
+
+                    }
+
+                }
+
+
+                // ERROR
+                else {
 
                     alert(result.message);
 
                 }
+
 
             } catch (error) {
 
@@ -126,6 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
     }
 
 });
