@@ -720,3 +720,287 @@ select {
         padding: 22px 16px;
     }
 }
+/* =========================
+   LOAN DETAIL PAGES
+========================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    color: #1765c0;
+}
+
+.header-btn {
+    text-decoration: none;
+    background: #1765c0;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.header-btn:hover {
+    background: #0f4f9d;
+}
+
+
+/* LOAN HERO */
+
+.loan-detail-hero {
+    background: #f3f7ff;
+    padding: 90px 6%;
+}
+
+.loan-detail-content {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.loan-badge {
+    display: inline-block;
+    color: #1765c0;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.loan-detail-content h1 {
+    font-size: 52px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.loan-detail-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* DETAILS */
+
+.loan-details {
+    padding: 80px 6%;
+    background: #ffffff;
+}
+
+.loan-detail-card {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.loan-detail-card h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.loan-detail-card > p {
+    color: #666;
+    max-width: 750px;
+    margin-bottom: 40px;
+}
+
+.loan-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.loan-info-box {
+    background: #f3f7ff;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e5eaf2;
+}
+
+.loan-info-box h3 {
+    margin-bottom: 10px;
+    color: #172033;
+}
+
+.loan-info-box p {
+    color: #666;
+}
+
+
+/* ELIGIBILITY */
+
+.eligibility {
+    padding: 70px 6%;
+    background: #f8faff;
+}
+
+.eligibility-inner {
+    max-width: 900px;
+    margin: auto;
+}
+
+.eligibility h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+.eligibility ul {
+    padding-left: 25px;
+}
+
+.eligibility li {
+    margin-bottom: 12px;
+    color: #555;
+}
+
+
+/* CTA */
+
+.loan-cta {
+    padding: 60px 6%;
+    background: #1765c0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.loan-cta h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.loan-cta p {
+    margin-bottom: 25px;
+}
+
+.loan-cta .primary-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #ffffff;
+    color: #1765c0;
+}
+
+
+/* =========================
+   LOAN PAGES MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        font-size: 14px;
+    }
+
+    .header-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .loan-detail-hero {
+        padding: 60px 20px;
+    }
+
+    .loan-detail-content h1 {
+        font-size: 38px;
+    }
+
+    .loan-detail-content p {
+        font-size: 16px;
+    }
+
+    .loan-details {
+        padding: 60px 20px;
+    }
+
+    .loan-detail-card h2 {
+        font-size: 28px;
+    }
+
+    .loan-info-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .loan-info-box {
+        padding: 24px;
+    }
+
+    .eligibility {
+        padding: 55px 20px;
+    }
+
+    .eligibility h2 {
+        font-size: 28px;
+    }
+
+    .eligibility li {
+        font-size: 15px;
+    }
+
+    .loan-cta {
+        padding: 50px 20px;
+    }
+
+    .loan-cta h2 {
+        font-size: 28px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .loan-detail-hero {
+        padding: 50px 16px;
+    }
+
+    .loan-detail-content h1 {
+        font-size: 32px;
+    }
+
+    .loan-details {
+        padding: 50px 16px;
+    }
+
+    .loan-detail-card h2 {
+        font-size: 25px;
+    }
+
+    .loan-info-box {
+        padding: 20px;
+    }
+
+    .eligibility {
+        padding: 45px 16px;
+    }
+
+    .loan-cta {
+        padding: 45px 16px;
+    }
+
+    .loan-cta h2 {
+        font-size: 25px;
+    }
+}
