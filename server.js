@@ -7,23 +7,34 @@ const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
 
+// Render का PORT automatically मिलेगा
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
+// ================================
+// SUPABASE
+// ================================
+
 const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_SECRET_KEY
 );
 
-// Home page
+// ================================
+// HOME PAGE
+// ================================
+
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// Submit application
+// ================================
+// SUBMIT APPLICATION
+// ================================
+
 app.post("/submit-application", async (req, res) => {
     const application = req.body;
 
@@ -52,7 +63,7 @@ app.post("/submit-application", async (req, res) => {
             });
         }
 
-        res.json({
+        return res.json({
             success: true,
             message: "Application successfully save ho gaya."
         });
@@ -60,14 +71,17 @@ app.post("/submit-application", async (req, res) => {
     } catch (error) {
         console.log("Server Error:", error);
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             message: "Application save nahi hua."
         });
     }
 });
 
-// Get all applications for Admin Panel
+// ================================
+// GET APPLICATIONS
+// ================================
+
 app.get("/applications", async (req, res) => {
     try {
         const { data, error } = await supabase
@@ -92,19 +106,22 @@ app.get("/applications", async (req, res) => {
             ...(row.data || {})
         }));
 
-        res.json(applications);
+        return res.json(applications);
 
     } catch (error) {
         console.log("Server Error:", error);
 
-        res.status(500).json({
+        return res.status(500).json({
             success: false,
             message: "Applications load nahi hui."
         });
     }
 });
 
-// Start server
+// ================================
+// SERVER START
+// ================================
+
 app.listen(PORT, () => {
     console.log("=================================");
     console.log("RELIANCE FINANCE SERVER");
