@@ -1,7 +1,3 @@
-/* =========================
-   RESET
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -17,12 +13,18 @@ body {
     color: #172033;
     background: #ffffff;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 button,
 input,
 select {
     font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -32,10 +34,12 @@ select {
 
 .header {
     width: 100%;
-    padding: 18px 6%;
+    min-height: 75px;
+    padding: 15px 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     background: #ffffff;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     position: sticky;
@@ -47,6 +51,7 @@ select {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .logo-circle {
@@ -75,13 +80,17 @@ select {
 
 .navbar {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 25px;
+    flex: 1;
 }
 
 .navbar a {
     text-decoration: none;
     color: #172033;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .navbar a:hover {
@@ -112,6 +121,7 @@ select {
 ========================= */
 
 .hero {
+    width: 100%;
     min-height: 600px;
     padding: 80px 6%;
     display: flex;
@@ -122,6 +132,7 @@ select {
 }
 
 .hero-content {
+    width: 100%;
     max-width: 650px;
 }
 
@@ -133,7 +144,7 @@ select {
 }
 
 .hero h1 {
-    font-size: 52px;
+    font-size: clamp(35px, 5vw, 52px);
     line-height: 1.15;
     margin-bottom: 20px;
 }
@@ -143,7 +154,7 @@ select {
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     color: #555;
     margin-bottom: 30px;
 }
@@ -152,6 +163,7 @@ select {
     display: flex;
     gap: 15px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .secondary-btn {
@@ -161,11 +173,13 @@ select {
 }
 
 .hero-card {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     background: #ffffff;
     padding: 35px;
     border-radius: 18px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
+    flex-shrink: 0;
 }
 
 .card-icon {
@@ -204,12 +218,14 @@ select {
 .loans,
 .why-us,
 .contact {
+    width: 100%;
     padding: 80px 6%;
 }
 
 .section-heading {
-    text-align: center;
+    width: 100%;
     max-width: 700px;
+    text-align: center;
     margin: 0 auto 45px;
 }
 
@@ -221,7 +237,7 @@ select {
 }
 
 .section-heading h2 {
-    font-size: 36px;
+    font-size: clamp(28px, 4vw, 36px);
     margin: 8px 0 12px;
 }
 
@@ -235,12 +251,14 @@ select {
 ========================= */
 
 .loan-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
 .loan-card {
+    min-width: 0;
     background: #ffffff;
     padding: 30px;
     border-radius: 15px;
@@ -275,11 +293,12 @@ select {
 
 .features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
 .feature {
+    min-width: 0;
     text-align: center;
     padding: 30px;
 }
@@ -300,6 +319,7 @@ select {
 ========================= */
 
 .cta {
+    width: 100%;
     padding: 55px 6%;
     background: #1765c0;
     color: #ffffff;
@@ -324,10 +344,11 @@ select {
 ========================= */
 
 .contact-info {
+    width: 100%;
     max-width: 700px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
     text-align: center;
 }
@@ -348,6 +369,7 @@ select {
 ========================= */
 
 .footer {
+    width: 100%;
     background: #172033;
     color: #ffffff;
     text-align: center;
@@ -398,15 +420,6 @@ select {
     padding: 30px;
 }
 
-.modal-box h2 {
-    margin-bottom: 5px;
-}
-
-.modal-box > p {
-    color: #666;
-    margin-bottom: 20px;
-}
-
 .close-btn {
     position: absolute;
     top: 12px;
@@ -447,9 +460,6 @@ select {
 /* =========================
    SUCCESS POPUP
 ========================= */
-
-/* IMPORTANT:
-   Submit karne se pehle hidden rahega */
 
 .success-message {
     display: none;
@@ -510,38 +520,89 @@ select {
 
 
 /* =========================
-   MOBILE
+   TABLET
 ========================= */
 
-@media (max-width: 768px) {
-
-    body {
-        width: 100%;
-        overflow-x: hidden;
-    }
+@media (max-width: 1000px) {
 
     .header {
-        padding: 15px 20px;
-        flex-wrap: wrap;
-        gap: 15px;
+        padding: 15px 3%;
     }
 
     .navbar {
-        display: none;
-    }
-
-    .apply-btn {
-        padding: 10px 15px;
+        gap: 15px;
     }
 
     .hero {
-        padding: 55px 20px;
+        padding: 65px 4%;
+        gap: 30px;
+    }
+
+    .loan-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        min-height: auto;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+    }
+
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .logo h2 {
+        font-size: 17px;
+    }
+
+    .logo span {
+        font-size: 10px;
+    }
+
+    .navbar {
+        width: 100%;
+        order: 3;
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        overflow-x: auto;
+        padding: 5px 0;
+    }
+
+    .navbar a {
+        font-size: 13px;
+    }
+
+    .apply-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 50px 18px;
         flex-direction: column;
         align-items: stretch;
+        gap: 35px;
     }
 
     .hero h1 {
-        font-size: 35px;
+        font-size: 36px;
     }
 
     .hero p {
@@ -549,61 +610,127 @@ select {
     }
 
     .hero-buttons {
+        width: 100%;
         flex-direction: column;
         align-items: stretch;
     }
 
     .hero-buttons button,
     .hero-buttons a {
-        text-align: center;
         width: 100%;
+        text-align: center;
     }
 
     .hero-card {
-        width: 100%;
+        max-width: 100%;
+        padding: 25px;
     }
 
     .loans,
     .why-us,
     .contact {
-        padding: 60px 20px;
+        padding: 55px 18px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
     }
 
     .section-heading h2 {
         font-size: 28px;
     }
 
-    .loan-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .features {
-        grid-template-columns: 1fr;
-    }
-
-    .cta {
-        padding: 45px 20px;
-        flex-direction: column;
-        text-align: center;
-    }
-
+    .loan-grid,
+    .features,
     .contact-info {
         grid-template-columns: 1fr;
     }
 
+    .loan-card,
+    .feature {
+        padding: 25px;
+    }
+
+    .cta {
+        padding: 45px 18px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cta .primary-btn {
+        width: 100%;
+    }
+
+    .contact-info {
+        gap: 15px;
+    }
+
     .modal {
-        padding: 12px;
+        padding: 10px;
     }
 
     .modal-box {
+        max-height: 94vh;
         padding: 25px 18px;
+        border-radius: 12px;
+    }
+
+    .success-message {
+        padding: 15px;
     }
 
     .success-box {
-        padding: 30px 20px;
+        padding: 28px 18px;
     }
 
     .success-box h2 {
         font-size: 24px;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .header {
+        padding: 10px 12px;
+    }
+
+    .logo h2 {
+        font-size: 15px;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+    }
+
+    .apply-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 31px;
+    }
+
+    .loans,
+    .why-us,
+    .contact {
+        padding: 45px 15px;
+    }
+
+    .footer {
+        padding: 30px 15px;
     }
 }
