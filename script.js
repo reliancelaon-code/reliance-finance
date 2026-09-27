@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (result.success) {
 
-                    alert("Application successfully submitted!");
+                   alert("Submit Successful\n\nYour application has been submitted successfully.\nPlease allow up to 24 hours for processing.");
 
                     loanForm.reset();
 
