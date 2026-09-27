@@ -448,9 +448,6 @@ select {
    SUCCESS POPUP
 ========================= */
 
-/* IMPORTANT:
-   Submit karne se pehle hidden rahega */
-
 .success-message {
     display: none;
     position: fixed;
@@ -510,6 +507,43 @@ select {
 
 
 /* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .header {
+        padding: 15px 4%;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-card {
+        width: 310px;
+    }
+
+    .loan-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -521,13 +555,41 @@ select {
     }
 
     .header {
-        padding: 15px 20px;
+        padding: 15px 15px;
         flex-wrap: wrap;
-        gap: 15px;
+        gap: 12px;
     }
 
+    .logo {
+        flex-shrink: 0;
+    }
+
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .logo h2 {
+        font-size: 18px;
+    }
+
+    .logo span {
+        font-size: 10px;
+    }
+
+    /* MOBILE NAVBAR - VISIBLE */
     .navbar {
-        display: none;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        order: 3;
+    }
+
+    .navbar a {
+        font-size: 14px;
     }
 
     .apply-btn {
@@ -605,5 +667,56 @@ select {
 
     .success-box h2 {
         font-size: 24px;
+    }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+    .header {
+        padding: 12px 12px;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 13px;
+    }
+
+    .apply-btn {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero {
+        padding: 45px 16px;
+    }
+
+    .loans,
+    .why-us,
+    .contact {
+        padding: 50px 16px;
+    }
+
+    .loan-card {
+        padding: 24px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .modal-box {
+        padding: 22px 16px;
     }
 }
