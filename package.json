@@ -1,18 +1,19 @@
 {
-  "name": "html",
+  "name": "reliance-finance",
   "version": "1.0.0",
-  "description": "",
-  "main": "script.js",
+  "description": "Reliance Finance Loan Application Website",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
     "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "pg": "^8.23.0"
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1"
   }
 }
