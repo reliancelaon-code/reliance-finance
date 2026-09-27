@@ -2,31 +2,61 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Admin Panel | Reliance Finance</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- Excel Library -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js">
+    </script>
+
 </head>
+
 
 <body>
 
-    <!-- LOGIN -->
 
-    <div class="admin-login" id="adminLogin">
+    <!-- =========================
+         LOGIN
+    ========================= -->
+
+    <div
+        class="admin-login"
+        id="adminLogin"
+    >
 
         <div class="admin-login-box">
 
-            <div class="admin-logo">R</div>
+            <div class="admin-logo">
+                R
+            </div>
 
-            <h1>Admin Login</h1>
+            <h1>
+                Admin Login
+            </h1>
 
-            <p>Reliance Finance Administration</p>
+            <p>
+                Reliance Finance Administration
+            </p>
+
 
             <form id="loginForm">
 
-                <label>Username</label>
+                <label>
+                    Username
+                </label>
 
                 <input
                     type="text"
@@ -35,7 +65,10 @@
                     required
                 >
 
-                <label>Password</label>
+
+                <label>
+                    Password
+                </label>
 
                 <input
                     type="password"
@@ -44,11 +77,16 @@
                     required
                 >
 
+
                 <button type="submit">
                     Login
                 </button>
 
-                <p class="login-error" id="loginError"></p>
+
+                <p
+                    class="login-error"
+                    id="loginError">
+                </p>
 
             </form>
 
@@ -57,16 +95,30 @@
     </div>
 
 
-    <!-- DASHBOARD -->
 
-    <div class="admin-dashboard" id="adminDashboard">
+    <!-- =========================
+         DASHBOARD
+    ========================= -->
+
+    <div
+        class="admin-dashboard"
+        id="adminDashboard"
+    >
 
         <header class="admin-header">
 
             <div>
-                <h2>RELIANCE FINANCE</h2>
-                <span>Admin Panel</span>
+
+                <h2>
+                    RELIANCE FINANCE
+                </h2>
+
+                <span>
+                    Admin Panel
+                </span>
+
             </div>
+
 
             <button id="logoutBtn">
                 Logout
@@ -75,35 +127,50 @@
         </header>
 
 
+
         <main class="admin-main">
+
+
+            <!-- TITLE -->
 
             <div class="admin-title">
 
                 <div>
-                    <h1>Applications</h1>
+
+                    <h1>
+                        Applications
+                    </h1>
 
                     <p>
                         Manage submitted loan applications.
                     </p>
+
                 </div>
+
 
                 <button
                     class="download-btn"
                     id="downloadBtn"
                 >
-                    Download CSV
+                    Download Excel
                 </button>
 
             </div>
 
 
-            <!-- STATS -->
+
+            <!-- =========================
+                 STATS
+            ========================= -->
 
             <div class="admin-stats">
 
+
                 <div class="admin-stat-card">
 
-                    <span>Total Applications</span>
+                    <span>
+                        Total Applications
+                    </span>
 
                     <strong id="totalApplications">
                         0
@@ -112,9 +179,12 @@
                 </div>
 
 
+
                 <div class="admin-stat-card">
 
-                    <span>Personal Loans</span>
+                    <span>
+                        Personal Loans
+                    </span>
 
                     <strong id="personalCount">
                         0
@@ -123,9 +193,12 @@
                 </div>
 
 
+
                 <div class="admin-stat-card">
 
-                    <span>Home Loans</span>
+                    <span>
+                        Home Loans
+                    </span>
 
                     <strong id="homeCount">
                         0
@@ -134,9 +207,12 @@
                 </div>
 
 
+
                 <div class="admin-stat-card">
 
-                    <span>Business Loans</span>
+                    <span>
+                        Business Loans
+                    </span>
 
                     <strong id="businessCount">
                         0
@@ -144,10 +220,14 @@
 
                 </div>
 
+
             </div>
 
 
-            <!-- APPLICATIONS -->
+
+            <!-- =========================
+                 APPLICATIONS
+            ========================= -->
 
             <div class="applications-box">
 
@@ -165,11 +245,15 @@
                 </div>
 
 
+
+                <!-- TABLE HEADING -->
+
                 <div class="table-heading">
 
                     <h2>
                         Loan Applications
                     </h2>
+
 
                     <button id="refreshBtn">
                         ↻ Refresh
@@ -177,6 +261,9 @@
 
                 </div>
 
+
+
+                <!-- TABLE -->
 
                 <div class="table-wrapper">
 
@@ -186,23 +273,41 @@
 
                             <tr>
 
-                                <th>ID</th>
+                                <th>
+                                    ID
+                                </th>
 
-                                <th>Date</th>
+                                <th>
+                                    Date
+                                </th>
 
-                                <th>Name</th>
+                                <th>
+                                    Name
+                                </th>
 
-                                <th>Mobile</th>
+                                <th>
+                                    Mobile
+                                </th>
 
-                                <th>Email</th>
+                                <th>
+                                    Email
+                                </th>
 
-                                <th>Loan Type</th>
+                                <th>
+                                    Loan Type
+                                </th>
 
-                                <th>Amount</th>
+                                <th>
+                                    Amount
+                                </th>
 
-                                <th>State</th>
+                                <th>
+                                    State
+                                </th>
 
-                                <th>Income</th>
+                                <th>
+                                    Income
+                                </th>
 
                             </tr>
 
@@ -232,57 +337,102 @@
     </div>
 
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
+
 
         /* =========================
            ELEMENTS
         ========================= */
 
         const adminLogin =
-            document.getElementById("adminLogin");
+            document.getElementById(
+                "adminLogin"
+            );
+
 
         const adminDashboard =
-            document.getElementById("adminDashboard");
+            document.getElementById(
+                "adminDashboard"
+            );
+
 
         const loginForm =
-            document.getElementById("loginForm");
+            document.getElementById(
+                "loginForm"
+            );
+
 
         const loginError =
-            document.getElementById("loginError");
+            document.getElementById(
+                "loginError"
+            );
+
 
         const logoutBtn =
-            document.getElementById("logoutBtn");
+            document.getElementById(
+                "logoutBtn"
+            );
+
 
         const applicationsTable =
-            document.getElementById("applicationsTable");
+            document.getElementById(
+                "applicationsTable"
+            );
+
 
         const totalApplications =
-            document.getElementById("totalApplications");
+            document.getElementById(
+                "totalApplications"
+            );
+
 
         const personalCount =
-            document.getElementById("personalCount");
+            document.getElementById(
+                "personalCount"
+            );
+
 
         const homeCount =
-            document.getElementById("homeCount");
+            document.getElementById(
+                "homeCount"
+            );
+
 
         const businessCount =
-            document.getElementById("businessCount");
+            document.getElementById(
+                "businessCount"
+            );
+
 
         const refreshBtn =
-            document.getElementById("refreshBtn");
+            document.getElementById(
+                "refreshBtn"
+            );
+
 
         const downloadBtn =
-            document.getElementById("downloadBtn");
+            document.getElementById(
+                "downloadBtn"
+            );
+
 
         const searchInput =
-            document.getElementById("searchInput");
+            document.getElementById(
+                "searchInput"
+            );
 
 
         /* =========================
-           GLOBAL APPLICATION DATA
+           APPLICATION DATA
         ========================= */
 
         let allApplications = [];
+
 
 
         /* =========================
@@ -295,15 +445,21 @@
 
                 event.preventDefault();
 
+
                 const username =
                     document
-                        .getElementById("adminUsername")
+                        .getElementById(
+                            "adminUsername"
+                        )
                         .value
                         .trim();
 
+
                 const password =
                     document
-                        .getElementById("adminPassword")
+                        .getElementById(
+                            "adminPassword"
+                        )
                         .value;
 
 
@@ -312,11 +468,17 @@
                     password === "admin123"
                 ) {
 
-                    adminLogin.style.display = "none";
+                    adminLogin.style.display =
+                        "none";
 
-                    adminDashboard.style.display = "block";
 
-                    loginError.textContent = "";
+                    adminDashboard.style.display =
+                        "block";
+
+
+                    loginError.textContent =
+                        "";
+
 
                     loadApplications();
 
@@ -331,6 +493,7 @@
         );
 
 
+
         /* =========================
            LOGOUT
         ========================= */
@@ -339,9 +502,13 @@
             "click",
             function() {
 
-                adminDashboard.style.display = "none";
+                adminDashboard.style.display =
+                    "none";
 
-                adminLogin.style.display = "flex";
+
+                adminLogin.style.display =
+                    "flex";
+
 
                 document.getElementById(
                     "adminPassword"
@@ -349,6 +516,7 @@
 
             }
         );
+
 
 
         /* =========================
@@ -387,10 +555,10 @@
                     await response.json();
 
 
-                /* SAVE DATA */
-
                 allApplications =
-                    Array.isArray(applications)
+                    Array.isArray(
+                        applications
+                    )
                         ? applications
                         : [];
 
@@ -399,6 +567,7 @@
 
                 totalApplications.textContent =
                     allApplications.length;
+
 
 
                 /* PERSONAL */
@@ -419,6 +588,7 @@
                     ).length;
 
 
+
                 /* HOME */
 
                 homeCount.textContent =
@@ -435,6 +605,7 @@
 
                         }
                     ).length;
+
 
 
                 /* BUSINESS */
@@ -455,15 +626,16 @@
                     ).length;
 
 
-                /* SHOW DATA */
 
                 renderApplications(
                     allApplications
                 );
 
+
             } catch (error) {
 
                 console.error(error);
+
 
                 applicationsTable.innerHTML = `
                     <tr>
@@ -478,6 +650,7 @@
         }
 
 
+
         /* =========================
            SHOW APPLICATIONS
         ========================= */
@@ -487,7 +660,9 @@
         ) {
 
             if (
-                !Array.isArray(applications) ||
+                !Array.isArray(
+                    applications
+                ) ||
                 applications.length === 0
             ) {
 
@@ -568,6 +743,7 @@
         }
 
 
+
         /* =========================
            SEARCH
         ========================= */
@@ -580,12 +756,15 @@
                     searchInput.value
                         .toLowerCase()
                         .trim()
-                        .replace(/\s+/g, "");
+                        .replace(
+                            /\s+/g,
+                            ""
+                        );
 
 
-                /* EMPTY SEARCH */
-
-                if (searchText === "") {
+                if (
+                    searchText === ""
+                ) {
 
                     renderApplications(
                         allApplications
@@ -595,8 +774,6 @@
 
                 }
 
-
-                /* FILTER */
 
                 const filteredApplications =
                     allApplications.filter(
@@ -646,14 +823,13 @@
                     );
 
 
-                /* SHOW RESULT */
-
                 renderApplications(
                     filteredApplications
                 );
 
             }
         );
+
 
 
         /* =========================
@@ -672,8 +848,9 @@
         );
 
 
+
         /* =========================
-           DOWNLOAD CSV
+           DOWNLOAD EXCEL
         ========================= */
 
         downloadBtn.addEventListener(
@@ -682,15 +859,46 @@
 
                 try {
 
+
+                    /* CHECK EXCEL LIBRARY */
+
+                    if (
+                        typeof XLSX === "undefined"
+                    ) {
+
+                        alert(
+                            "Excel library load nahi hui. Internet check karein."
+                        );
+
+                        return;
+
+                    }
+
+
+
+                    /* GET DATA */
+
                     const response =
                         await fetch(
                             "/applications"
                         );
 
 
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Applications load failed"
+                        );
+
+                    }
+
+
                     const applications =
                         await response.json();
 
+
+
+                    /* CHECK DATA */
 
                     if (
                         !Array.isArray(
@@ -708,122 +916,135 @@
                     }
 
 
-                    const headers = [
 
-                        "ID",
-                        "Date",
-                        "Name",
-                        "Mobile",
-                        "Email",
-                        "Loan Type",
-                        "Loan Amount",
-                        "State",
-                        "Monthly Income"
+                    /* =========================
+                       EXCEL DATA
+                    ========================= */
+
+                    const excelData =
+                        applications.map(
+                            function(app) {
+
+                                return {
+
+                                    "ID":
+                                        app.id || "",
+
+                                    "Date":
+                                        app.date
+                                            ? new Date(
+                                                app.date
+                                            ).toLocaleString()
+                                            : "",
+
+                                    "Name":
+                                        app.name || "",
+
+                                    "Mobile":
+                                        app.mobile || "",
+
+                                    "Email":
+                                        app.email || "",
+
+                                    "Loan Type":
+                                        app.loanType || "",
+
+                                    "Loan Amount":
+                                        app.loanAmount || "",
+
+                                    "State":
+                                        app.state || "",
+
+                                    "Monthly Income":
+                                        app.monthlyIncome || ""
+
+                                };
+
+                            }
+                        );
+
+
+
+                    /* =========================
+                       CREATE WORKSHEET
+                    ========================= */
+
+                    const worksheet =
+                        XLSX.utils.json_to_sheet(
+                            excelData
+                        );
+
+
+
+                    /* =========================
+                       COLUMN WIDTH
+                    ========================= */
+
+                    worksheet["!cols"] = [
+
+                        {
+                            wch: 12
+                        },
+
+                        {
+                            wch: 22
+                        },
+
+                        {
+                            wch: 22
+                        },
+
+                        {
+                            wch: 16
+                        },
+
+                        {
+                            wch: 30
+                        },
+
+                        {
+                            wch: 18
+                        },
+
+                        {
+                            wch: 18
+                        },
+
+                        {
+                            wch: 18
+                        },
+
+                        {
+                            wch: 20
+                        }
 
                     ];
 
 
-                    const rows =
-                        applications.map(
-                            function(app) {
 
-                                return [
+                    /* =========================
+                       CREATE WORKBOOK
+                    ========================= */
 
-                                    app.id || "",
-
-                                    app.date || "",
-
-                                    app.name || "",
-
-                                    app.mobile || "",
-
-                                    app.email || "",
-
-                                    app.loanType || "",
-
-                                    app.loanAmount || "",
-
-                                    app.state || "",
-
-                                    app.monthlyIncome || ""
-
-                                ];
-
-                            }
-                        );
+                    const workbook =
+                        XLSX.utils.book_new();
 
 
-                    const csv = [
-
-                        headers,
-
-                        ...rows
-
-                    ]
-                        .map(
-                            function(row) {
-
-                                return row
-                                    .map(
-                                        function(value) {
-
-                                            return `"${String(
-                                                value
-                                            ).replace(
-                                                /"/g,
-                                                '""'
-                                            )}"`;
-
-                                        }
-                                    )
-                                    .join(",");
-
-                            }
-                        )
-                        .join("\n");
-
-
-                    const blob =
-                        new Blob(
-                            [csv],
-                            {
-                                type:
-                                    "text/csv;charset=utf-8"
-                            }
-                        );
-
-
-                    const url =
-                        URL.createObjectURL(
-                            blob
-                        );
-
-
-                    const link =
-                        document.createElement(
-                            "a"
-                        );
-
-
-                    link.href = url;
-
-                    link.download =
-                        "loan-applications.csv";
-
-
-                    document.body.appendChild(
-                        link
-                    );
-
-                    link.click();
-
-                    document.body.removeChild(
-                        link
+                    XLSX.utils.book_append_sheet(
+                        workbook,
+                        worksheet,
+                        "Applications"
                     );
 
 
-                    URL.revokeObjectURL(
-                        url
+
+                    /* =========================
+                       DOWNLOAD XLSX
+                    ========================= */
+
+                    XLSX.writeFile(
+                        workbook,
+                        "Reliance-Finance-Applications.xlsx"
                     );
 
 
@@ -831,8 +1052,9 @@
 
                     console.error(error);
 
+
                     alert(
-                        "CSV download nahi ho saka."
+                        "Excel download nahi ho saka."
                     );
 
                 }
@@ -840,7 +1062,9 @@
             }
         );
 
+
     </script>
+
 
 </body>
 
