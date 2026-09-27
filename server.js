@@ -7,33 +7,20 @@ const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
 
-// Render का PORT automatically मिलेगा
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
-// ================================
-// SUPABASE
-// ================================
-
 const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_SECRET_KEY
 );
 
-// ================================
-// HOME PAGE
-// ================================
-
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
-
-// ================================
-// SUBMIT APPLICATION
-// ================================
 
 app.post("/submit-application", async (req, res) => {
     const application = req.body;
@@ -78,10 +65,6 @@ app.post("/submit-application", async (req, res) => {
     }
 });
 
-// ================================
-// GET APPLICATIONS
-// ================================
-
 app.get("/applications", async (req, res) => {
     try {
         const { data, error } = await supabase
@@ -118,13 +101,9 @@ app.get("/applications", async (req, res) => {
     }
 });
 
-// ================================
-// SERVER START
-// ================================
-
 app.listen(PORT, () => {
     console.log("=================================");
     console.log("RELIANCE FINANCE SERVER");
     console.log("=================================");
-    console.log(Server running on port ${PORT});
+    console.log("Server running on port " + PORT);
 });
