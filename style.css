@@ -13,9 +13,9 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f8fc;
+    font-family: Arial, sans-serif;
     color: #172033;
+    background: #ffffff;
     line-height: 1.6;
 }
 
@@ -25,26 +25,19 @@ select {
     font-family: inherit;
 }
 
-a {
-    text-decoration: none;
-}
-
 
 /* =========================
    HEADER
 ========================= */
 
 .header {
-    height: 76px;
-    background: #ffffff;
-    border-bottom: 1px solid #e4eaf2;
-
+    width: 100%;
+    padding: 18px 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 7%;
-
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -57,74 +50,60 @@ a {
 }
 
 .logo-circle {
-    width: 44px;
-    height: 44px;
-
-    background: #1765c0;
-    color: white;
-
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-
+    background: #1765c0;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 22px;
+    font-size: 23px;
     font-weight: bold;
 }
 
 .logo h2 {
-    color: #1765c0;
-    font-size: 18px;
-    line-height: 1.1;
-    letter-spacing: 1px;
+    font-size: 20px;
+    line-height: 1;
 }
 
 .logo span {
-    color: #667085;
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #1765c0;
 }
 
 .navbar {
     display: flex;
-    align-items: center;
-    gap: 32px;
+    gap: 25px;
 }
 
 .navbar a {
-    color: #344054;
-    font-size: 15px;
-    font-weight: 600;
-
-    transition: 0.25s;
+    text-decoration: none;
+    color: #172033;
+    font-weight: 500;
 }
 
 .navbar a:hover {
     color: #1765c0;
 }
 
-.apply-btn {
+.apply-btn,
+.primary-btn,
+.submit-btn {
     border: none;
-
     background: #1765c0;
-    color: white;
-
-    padding: 11px 21px;
-
-    border-radius: 7px;
-
-    font-size: 14px;
-    font-weight: bold;
-
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 8px;
     cursor: pointer;
-
-    transition: 0.25s;
+    font-weight: bold;
 }
 
-.apply-btn:hover {
-    background: #0d4f9c;
-    transform: translateY(-1px);
+.apply-btn:hover,
+.primary-btn:hover,
+.submit-btn:hover {
+    background: #0f4f9d;
 }
 
 
@@ -133,363 +112,186 @@ a {
 ========================= */
 
 .hero {
-    min-height: 570px;
-
-    padding: 80px 7%;
-
+    min-height: 600px;
+    padding: 80px 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 60px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #edf6ff 0%,
-            #ffffff 70%
-        );
+    gap: 50px;
+    background: #f3f7ff;
 }
 
 .hero-content {
-    max-width: 680px;
+    max-width: 650px;
 }
 
 .trusted {
     display: inline-block;
-
-    background: #e7f7ed;
-    color: #15803d;
-
-    padding: 7px 14px;
-
-    border-radius: 30px;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    margin-bottom: 20px;
+    color: #1765c0;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .hero h1 {
-    font-size: 54px;
-    line-height: 1.12;
-
-    color: #172033;
-
-    margin-bottom: 22px;
+    font-size: 52px;
+    line-height: 1.15;
+    margin-bottom: 20px;
 }
 
 .hero h1 span {
-    display: block;
     color: #1765c0;
 }
 
 .hero p {
-    max-width: 610px;
-
-    color: #667085;
-
-    font-size: 17px;
-
+    font-size: 18px;
+    color: #555;
     margin-bottom: 30px;
 }
 
 .hero-buttons {
     display: flex;
+    gap: 15px;
     align-items: center;
-    gap: 14px;
-}
-
-.primary-btn,
-.secondary-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 46px;
-
-    padding: 0 22px;
-
-    border-radius: 7px;
-
-    font-size: 15px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.primary-btn {
-    border: none;
-
-    background: #1765c0;
-    color: #ffffff;
-}
-
-.primary-btn:hover {
-    background: #0d4f9c;
-    transform: translateY(-2px);
 }
 
 .secondary-btn {
-    border: 1px solid #cdd8e6;
-    background: #ffffff;
-    color: #344054;
-}
-
-.secondary-btn:hover {
-    border-color: #1765c0;
+    text-decoration: none;
     color: #1765c0;
+    font-weight: bold;
 }
-
-
-/* =========================
-   HERO CARD
-========================= */
 
 .hero-card {
     width: 350px;
-
     background: #ffffff;
-
-    border: 1px solid #e1e8f0;
-
+    padding: 35px;
     border-radius: 18px;
-
-    padding: 32px;
-
-    box-shadow:
-        0 18px 45px rgba(23, 32, 51, 0.10);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.10);
 }
 
 .card-icon {
-    width: 58px;
-    height: 58px;
-
-    background: #eaf3ff;
-    color: #1765c0;
-
-    border-radius: 14px;
-
+    width: 55px;
+    height: 55px;
+    background: #1765c0;
+    color: #ffffff;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: 28px;
+    font-size: 25px;
     font-weight: bold;
-
     margin-bottom: 20px;
 }
 
 .hero-card h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
-.hero-card > p {
-    color: #667085;
-    margin-bottom: 22px;
+.hero-card p {
+    font-size: 15px;
 }
 
 .card-item {
-    padding: 13px 0;
-
-    border-top: 1px solid #edf0f4;
-
-    color: #344054;
-
-    font-size: 14px;
+    margin-top: 12px;
+    color: #1765c0;
+    font-weight: 500;
 }
 
 
 /* =========================
-   LOANS
+   SECTIONS
 ========================= */
 
-.loans {
-    padding: 85px 7%;
-
-    background: #ffffff;
+.loans,
+.why-us,
+.contact {
+    padding: 80px 6%;
 }
 
 .section-heading {
     text-align: center;
-
     max-width: 700px;
-
     margin: 0 auto 45px;
 }
 
-.section-heading > span {
+.section-heading span {
     color: #1765c0;
-
     font-size: 13px;
     font-weight: bold;
-
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
 }
 
 .section-heading h2 {
     font-size: 36px;
-
-    color: #172033;
-
-    margin: 8px 0 10px;
+    margin: 8px 0 12px;
 }
 
 .section-heading p {
-    color: #667085;
+    color: #666;
 }
 
 
 /* =========================
-   LOAN GRID
+   LOAN CARDS
 ========================= */
 
 .loan-grid {
-    max-width: 1150px;
-
-    margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .loan-card {
     background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 14px;
-
-    padding: 28px;
-
-    box-shadow:
-        0 7px 25px rgba(23, 32, 51, 0.05);
-
-    transition: 0.3s;
-}
-
-.loan-card:hover {
-    transform: translateY(-5px);
-
-    border-color: #c9ddf5;
-
-    box-shadow:
-        0 14px 35px rgba(23, 32, 51, 0.09);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eeeeee;
 }
 
 .loan-icon {
-    width: 52px;
-    height: 52px;
-
-    background: #edf5ff;
-
-    border-radius: 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 25px;
-
-    margin-bottom: 18px;
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
 .loan-card h3 {
-    font-size: 20px;
     margin-bottom: 10px;
 }
 
 .loan-card p {
-    color: #667085;
-
-    font-size: 14px;
-
-    min-height: 70px;
-
+    color: #666;
     margin-bottom: 18px;
 }
 
 .loan-card a {
     color: #1765c0;
-
-    font-size: 14px;
-
+    text-decoration: none;
     font-weight: bold;
-}
-
-.loan-card a:hover {
-    color: #0d4f9c;
 }
 
 
 /* =========================
-   WHY US
+   FEATURES
 ========================= */
 
-.why-us {
-    padding: 85px 7%;
-
-    background: #f5f8fc;
-}
-
 .features {
-    max-width: 1000px;
-
-    margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
 .feature {
-    background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 14px;
-
-    padding: 30px;
-
     text-align: center;
-
-    transition: 0.3s;
-}
-
-.feature:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 12px 30px rgba(23, 32, 51, 0.07);
+    padding: 30px;
 }
 
 .feature-icon {
-    font-size: 35px;
-
+    font-size: 40px;
     margin-bottom: 15px;
 }
 
-.feature h3 {
-    margin-bottom: 9px;
-
-    font-size: 19px;
-}
-
 .feature p {
-    color: #667085;
-
-    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
 }
 
 
@@ -498,38 +300,22 @@ a {
 ========================= */
 
 .cta {
-    padding: 65px 7%;
-
+    padding: 55px 6%;
     background: #1765c0;
-
-    color: white;
-
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 30px;
 }
 
-.cta h2 {
-    font-size: 32px;
-
-    margin-bottom: 7px;
-}
-
 .cta p {
-    color: #e4efff;
+    margin-top: 5px;
 }
 
 .cta .primary-btn {
-    background: white;
+    background: #ffffff;
     color: #1765c0;
-
-    white-space: nowrap;
-}
-
-.cta .primary-btn:hover {
-    background: #eef5ff;
 }
 
 
@@ -537,45 +323,23 @@ a {
    CONTACT
 ========================= */
 
-.contact {
-    padding: 85px 7%;
-
-    background: #ffffff;
-}
-
 .contact-info {
-    max-width: 800px;
-
+    max-width: 700px;
     margin: auto;
-
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    text-align: center;
 }
 
-.contact-info > div {
-    background: #f7faff;
-
-    border: 1px solid #e1e8f0;
-
-    border-radius: 12px;
-
+.contact-info div {
     padding: 25px;
+    background: #f3f7ff;
+    border-radius: 12px;
 }
 
 .contact-info strong {
-    display: block;
-
-    color: #172033;
-
-    margin-bottom: 7px;
-}
-
-.contact-info p {
-    color: #667085;
+    color: #1765c0;
 }
 
 
@@ -584,430 +348,164 @@ a {
 ========================= */
 
 .footer {
-    background: #111827;
-
-    color: white;
-
+    background: #172033;
+    color: #ffffff;
     text-align: center;
-
-    padding: 32px 7%;
+    padding: 35px 6%;
 }
 
 .footer-logo {
-    margin-bottom: 12px;
-}
-
-.footer-logo strong {
-    color: white;
-
-    letter-spacing: 1px;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .footer p {
-    color: #aeb8c7;
-
-    font-size: 13px;
-
-    margin-top: 5px;
+    color: #cbd1dc;
+    margin: 8px 0;
 }
 
-.footer .disclaimer {
-    max-width: 700px;
-
-    margin: 12px auto 0;
-
-    font-size: 12px;
-
-    color: #8994a5;
+.disclaimer {
+    font-size: 13px;
 }
 
 
 /* =========================
-   MODAL
+   APPLY MODAL
 ========================= */
 
 .modal {
     display: none;
-
     position: fixed;
-
     inset: 0;
-
-    z-index: 2000;
-
-    background: rgba(15, 23, 42, 0.65);
-
-    padding: 20px;
-
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    z-index: 9998;
+    overflow-y: auto;
 }
 
 .modal-box {
-    width: 100%;
-    max-width: 560px;
-
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    background: #ffffff;
-
-    border-radius: 15px;
-
-    padding: 32px;
-
     position: relative;
-
-    box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.25);
-}
-
-.close-btn {
-    position: absolute;
-
-    right: 18px;
-    top: 12px;
-
-    width: 36px;
-    height: 36px;
-
-    border: none;
-
-    background: #f1f4f8;
-
-    border-radius: 50%;
-
-    color: #344054;
-
-    font-size: 25px;
-
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    background: #e5eaf0;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
 }
 
 .modal-box h2 {
-    font-size: 27px;
-
     margin-bottom: 5px;
 }
 
 .modal-box > p {
-    color: #667085;
-
-    font-size: 14px;
-
-    margin-bottom: 25px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
-
-/* =========================
-   FORM
-========================= */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    cursor: pointer;
+}
 
 #loanForm label {
     display: block;
-
-    margin: 14px 0 6px;
-
-    color: #344054;
-
-    font-size: 14px;
-
-    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 #loanForm input,
 #loanForm select {
     width: 100%;
-
-    height: 45px;
-
-    border: 1px solid #d0d7e2;
-
+    padding: 12px;
+    border: 1px solid #d5d9df;
     border-radius: 7px;
-
-    padding: 0 13px;
-
     outline: none;
-
-    background: #ffffff;
-
-    color: #172033;
-
-    font-size: 14px;
-
-    transition: 0.2s;
 }
 
 #loanForm input:focus,
 #loanForm select:focus {
     border-color: #1765c0;
-
-    box-shadow:
-        0 0 0 3px rgba(23, 101, 192, 0.10);
-}
-
-#loanForm input::placeholder {
-    color: #98a2b3;
 }
 
 .submit-btn {
     width: 100%;
-
-    height: 47px;
-
-    margin-top: 25px;
-
-    border: none;
-
-    border-radius: 7px;
-
-    background: #1765c0;
-
-    color: white;
-
-    font-size: 15px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-}
-
-.submit-btn:hover {
-    background: #0d4f9c;
+    margin-top: 22px;
 }
 
 
 /* =========================
-   LOAN DETAIL PAGES
+   SUCCESS POPUP
 ========================= */
 
-.loan-detail-hero {
-    min-height: 430px;
+/* IMPORTANT:
+   Submit karne se pehle hidden rahega */
 
-    padding: 75px 7%;
-
-    display: flex;
+.success-message {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
     align-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #edf6ff,
-            #ffffff
-        );
+    justify-content: center;
+    padding: 20px;
+    z-index: 99999;
 }
 
-.loan-detail-content {
-    max-width: 760px;
+.success-box {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
 }
 
-.loan-badge {
-    display: inline-block;
-
-    background: #e6f1ff;
-
-    color: #1765c0;
-
-    padding: 7px 15px;
-
-    border-radius: 25px;
-
-    font-size: 13px;
-
+.success-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #22c55e;
+    color: #ffffff;
+    font-size: 40px;
+    line-height: 65px;
     font-weight: bold;
-
-    margin-bottom: 18px;
 }
 
-.loan-detail-content h1 {
-    font-size: 50px;
-
-    line-height: 1.15;
-
-    margin-bottom: 18px;
-}
-
-.loan-detail-content p {
-    color: #667085;
-
-    font-size: 17px;
-
-    max-width: 650px;
-
-    margin-bottom: 28px;
-}
-
-.loan-details {
-    padding: 80px 7%;
-
-    background: white;
-}
-
-.loan-detail-card {
-    max-width: 1100px;
-
-    margin: auto;
-}
-
-.loan-detail-card h2 {
-    font-size: 32px;
-
+.success-box h2 {
+    font-size: 27px;
     margin-bottom: 12px;
 }
 
-.loan-detail-card > p {
-    max-width: 750px;
-
-    color: #667085;
-
-    margin-bottom: 35px;
+.success-box p {
+    color: #555;
+    margin: 8px 0;
 }
 
-.loan-info-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 20px;
-}
-
-.loan-info-box {
-    background: #f7faff;
-
-    border: 1px solid #e1e8f0;
-
-    border-radius: 12px;
-
-    padding: 23px;
-
-    transition: 0.3s;
-}
-
-.loan-info-box:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 10px 25px rgba(23, 32, 51, 0.07);
-}
-
-.loan-info-box h3 {
-    font-size: 17px;
-
-    margin-bottom: 9px;
-}
-
-.loan-info-box p {
-    color: #667085;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   ELIGIBILITY
-========================= */
-
-.eligibility {
-    padding: 70px 7%;
-
-    background: #f5f8fc;
-}
-
-.eligibility-inner {
-    max-width: 900px;
-
-    margin: auto;
-}
-
-.eligibility h2 {
-    font-size: 31px;
-
-    margin-bottom: 22px;
-}
-
-.eligibility ul {
-    padding-left: 20px;
-}
-
-.eligibility li {
-    color: #475467;
-
-    margin-bottom: 11px;
-}
-
-
-/* =========================
-   LOAN CTA
-========================= */
-
-.loan-cta {
-    padding: 70px 7%;
-
-    text-align: center;
-
+.success-box button {
+    margin-top: 20px;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 8px;
     background: #1765c0;
-
-    color: white;
-}
-
-.loan-cta h2 {
-    font-size: 34px;
-
-    margin-bottom: 8px;
-}
-
-.loan-cta p {
-    color: #e4efff;
-
-    margin-bottom: 25px;
-}
-
-.loan-cta .primary-btn {
-    background: white;
-
-    color: #1765c0;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1000px) {
-
-    .header {
-        padding: 0 4%;
-    }
-
-    .hero {
-        padding: 70px 5%;
-    }
-
-    .hero h1 {
-        font-size: 45px;
-    }
-
-    .hero-card {
-        width: 310px;
-    }
-
-    .loan-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .loan-info-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
@@ -1015,592 +513,97 @@ a {
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        overflow-x: hidden;
+    }
 
     .header {
-        height: auto;
-
-        padding: 14px 5%;
-
+        padding: 15px 20px;
         flex-wrap: wrap;
-
-        gap: 12px;
+        gap: 15px;
     }
 
     .navbar {
-        order: 3;
-
-        width: 100%;
-
-        justify-content: center;
-
-        gap: 18px;
-    }
-
-    .navbar a {
-        font-size: 13px;
+        display: none;
     }
 
     .apply-btn {
-        padding: 9px 15px;
+        padding: 10px 15px;
     }
 
-
     .hero {
-        min-height: auto;
-
-        padding: 60px 5%;
-
+        padding: 55px 20px;
         flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 40px;
+        align-items: stretch;
     }
 
     .hero h1 {
-        font-size: 38px;
+        font-size: 35px;
     }
 
     .hero p {
-        font-size: 15px;
+        font-size: 16px;
     }
 
     .hero-buttons {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons button,
+    .hero-buttons a {
+        text-align: center;
+        width: 100%;
     }
 
     .hero-card {
         width: 100%;
     }
 
-
     .loans,
     .why-us,
-    .contact,
-    .loan-details,
-    .eligibility {
-        padding: 60px 5%;
-    }
-
-    .section-heading {
-        margin-bottom: 32px;
+    .contact {
+        padding: 60px 20px;
     }
 
     .section-heading h2 {
-        font-size: 29px;
+        font-size: 28px;
     }
 
     .loan-grid {
         grid-template-columns: 1fr;
     }
 
-    .loan-card p {
-        min-height: auto;
-    }
-
     .features {
         grid-template-columns: 1fr;
+    }
+
+    .cta {
+        padding: 45px 20px;
+        flex-direction: column;
+        text-align: center;
     }
 
     .contact-info {
         grid-template-columns: 1fr;
     }
 
-
-    .cta {
-        padding: 55px 5%;
-
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-
-    .loan-detail-hero {
-        min-height: 380px;
-
-        padding: 60px 5%;
-    }
-
-    .loan-detail-content h1 {
-        font-size: 38px;
-    }
-
-    .loan-detail-content p {
-        font-size: 15px;
-    }
-
-    .loan-info-grid {
-        grid-template-columns: 1fr;
-    }
-
-
     .modal {
         padding: 12px;
     }
 
     .modal-box {
-        padding: 28px 20px;
-
-        max-height: 92vh;
+        padding: 25px 18px;
     }
 
-    .modal-box h2 {
+    .success-box {
+        padding: 30px 20px;
+    }
+
+    .success-box h2 {
         font-size: 24px;
-    }
-}
-
-
-/* =========================
-   VERY SMALL MOBILE
-========================= */
-
-@media (max-width: 420px) {
-
-    .logo h2 {
-        font-size: 16px;
-    }
-
-    .navbar {
-        gap: 12px;
-    }
-
-    .navbar a {
-        font-size: 12px;
-    }
-
-    .hero h1 {
-        font-size: 33px;
-    }
-
-    .hero-buttons {
-        width: 100%;
-
-        flex-direction: column;
-    }
-
-    .primary-btn,
-    .secondary-btn {
-        width: 100%;
-    }
-
-    .hero-card {
-        padding: 24px;
-    }
-
-    .loan-detail-content h1 {
-        font-size: 33px;
-    }
-}
-/* =========================================
-   ADMIN PANEL
-========================================= */
-
-.admin-login {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f3f7ff;
-    padding: 20px;
-}
-
-.admin-login-box {
-    width: 100%;
-    max-width: 420px;
-    background: #ffffff;
-    padding: 40px 35px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(23, 32, 51, 0.12);
-    text-align: center;
-}
-
-.admin-logo {
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 18px;
-    border-radius: 50%;
-    background: #1765c0;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    font-weight: 800;
-}
-
-.admin-login-box h1 {
-    margin-bottom: 8px;
-    color: #172033;
-}
-
-.admin-login-box > p {
-    color: #687386;
-    margin-bottom: 28px;
-}
-
-.admin-login-box form {
-    text-align: left;
-}
-
-.admin-login-box label {
-    display: block;
-    margin: 15px 0 7px;
-    color: #172033;
-    font-weight: 600;
-}
-
-.admin-login-box input {
-    width: 100%;
-    padding: 13px 14px;
-    border: 1px solid #d8e0ec;
-    border-radius: 9px;
-    outline: none;
-    font-size: 15px;
-    box-sizing: border-box;
-}
-
-.admin-login-box input:focus {
-    border-color: #1765c0;
-}
-
-.admin-login-box button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 13px;
-    border: none;
-    border-radius: 9px;
-    background: #1765c0;
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.admin-login-box button:hover {
-    background: #0f4f99;
-}
-
-.login-error {
-    color: #d93025;
-    font-size: 14px;
-    margin-top: 14px;
-}
-
-
-/* =========================================
-   ADMIN DASHBOARD
-========================================= */
-
-.admin-dashboard {
-    display: none;
-    min-height: 100vh;
-    background: #f3f7ff;
-}
-
-.admin-header {
-    min-height: 72px;
-    padding: 0 5%;
-    background: #ffffff;
-    border-bottom: 1px solid #e1e7f0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.admin-header h2 {
-    margin: 0;
-    color: #1765c0;
-    font-size: 21px;
-}
-
-.admin-header span {
-    color: #687386;
-    font-size: 13px;
-}
-
-.admin-header button {
-    border: none;
-    background: #172033;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.admin-header button:hover {
-    background: #303b50;
-}
-
-
-/* =========================================
-   ADMIN MAIN
-========================================= */
-
-.admin-main {
-    width: 90%;
-    max-width: 1400px;
-    margin: auto;
-    padding: 35px 0 50px;
-}
-
-.admin-title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.admin-title h1 {
-    margin: 0 0 6px;
-    color: #172033;
-}
-
-.admin-title p {
-    margin: 0;
-    color: #687386;
-}
-
-.download-btn {
-    border: none;
-    background: #1765c0;
-    color: #ffffff;
-    padding: 12px 18px;
-    border-radius: 9px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.download-btn:hover {
-    background: #0f4f99;
-}
-
-
-/* =========================================
-   STAT CARDS
-========================================= */
-
-.admin-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-bottom: 28px;
-}
-
-.admin-stat-card {
-    background: #ffffff;
-    padding: 23px;
-    border-radius: 14px;
-    border: 1px solid #e1e7f0;
-    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.05);
-}
-
-.admin-stat-card span {
-    display: block;
-    color: #687386;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.admin-stat-card strong {
-    color: #1765c0;
-    font-size: 30px;
-}
-
-
-/* =========================================
-   APPLICATION TABLE
-========================================= */
-
-.applications-box {
-    background: #ffffff;
-    border-radius: 15px;
-    border: 1px solid #e1e7f0;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.05);
-}
-
-.table-heading {
-    padding: 20px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #e1e7f0;
-}
-
-.table-heading h2 {
-    margin: 0;
-    color: #172033;
-    font-size: 20px;
-}
-
-.table-heading button {
-    border: 1px solid #d8e0ec;
-    background: #ffffff;
-    color: #1765c0;
-    padding: 9px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.table-heading button:hover {
-    background: #f3f7ff;
-}
-
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.applications-box table {
-    width: 100%;
-    min-width: 1000px;
-    border-collapse: collapse;
-}
-
-.applications-box th {
-    background: #f3f7ff;
-    color: #172033;
-    font-size: 13px;
-    font-weight: 700;
-    text-align: left;
-    padding: 14px 16px;
-    white-space: nowrap;
-}
-
-.applications-box td {
-    padding: 14px 16px;
-    border-top: 1px solid #edf1f6;
-    color: #4f5b6d;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-.applications-box tbody tr:hover {
-    background: #f9fbff;
-}
-
-
-/* =========================================
-   ADMIN RESPONSIVE
-========================================= */
-
-@media (max-width: 1000px) {
-
-    .admin-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .admin-header {
-        padding: 15px 5%;
-    }
-
-    .admin-title {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .download-btn {
-        width: 100%;
-    }
-
-    .admin-main {
-        width: 92%;
-        padding-top: 25px;
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .admin-login-box {
-        padding: 30px 22px;
-    }
-
-    .admin-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-header h2 {
-        font-size: 17px;
-    }
-
-    .admin-header span {
-        font-size: 11px;
-    }
-
-    .admin-header button {
-        padding: 8px 12px;
-    }
-
-    .table-heading {
-        padding: 16px;
-    }
-
-}
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    .container,
-    .hero,
-    .section,
-    .loan-section {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    h1 {
-        font-size: 32px;
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 26px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    button,
-    .btn,
-    a {
-        max-width: 100%;
-    }
-
-    input,
-    select,
-    textarea {
-        width: 100%;
-        max-width: 100%;
     }
 }
