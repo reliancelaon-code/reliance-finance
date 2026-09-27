@@ -6,6 +6,7 @@ const path = require("path");
 const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
@@ -17,10 +18,12 @@ const supabase = createClient(
     process.env.SUPABASE_SECRET_KEY
 );
 
+// Home page
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
+// Submit application
 app.post("/submit-application", async (req, res) => {
     const application = req.body;
 
@@ -34,7 +37,11 @@ app.post("/submit-application", async (req, res) => {
     try {
         const { error } = await supabase
             .from("applications")
-            .insert([{ data: application }]);
+            .insert([
+                {
+                    data: application
+                }
+            ]);
 
         if (error) {
             console.log("Supabase Error:", error);
@@ -60,12 +67,15 @@ app.post("/submit-application", async (req, res) => {
     }
 });
 
+// Get all applications for Admin Panel
 app.get("/applications", async (req, res) => {
     try {
         const { data, error } = await supabase
             .from("applications")
             .select("*")
-            .order("created_at", { ascending: false });
+            .order("created_at", {
+                ascending: false
+            });
 
         if (error) {
             console.log("Supabase Error:", error);
@@ -94,6 +104,7 @@ app.get("/applications", async (req, res) => {
     }
 });
 
+// Start server
 app.listen(PORT, () => {
     console.log("=================================");
     console.log("RELIANCE FINANCE SERVER");
