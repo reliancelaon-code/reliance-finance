@@ -102,9 +102,13 @@ app.get("/applications", async (req, res) => {
 });
 
 // SERVER START
-app.listen(PORT, function () {
-    console.log("=================================");
-    console.log("RELIANCE FINANCE SERVER");
-    console.log("=================================");
-    console.log("Server running on port " + PORT);
-});
+if (process.env.VERCEL !== "1") {
+    app.listen(PORT, function () {
+        console.log("=================================");
+        console.log("RELIANCE FINANCE SERVER");
+        console.log("=================================");
+        console.log("Server running on port " + PORT);
+    });
+}
+
+module.exports = app;
