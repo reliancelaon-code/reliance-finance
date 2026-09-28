@@ -10,8 +10,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
 
+// PUBLIC FILES
+app.use(express.static(path.join(__dirname, "public")));
+
+// SUPABASE
 const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_SECRET_KEY
@@ -19,11 +22,12 @@ const supabase = createClient(
 
 // HOME PAGE
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // SUBMIT APPLICATION
 app.post("/submit-application", async (req, res) => {
+
     const application = req.body;
 
     if (!application.name || !application.mobile) {
@@ -34,12 +38,17 @@ app.post("/submit-application", async (req, res) => {
     }
 
     try {
-        const result = await supabase
-            .from("applications")
-            .insert([{ data: application }]);
 
-        if (result.error) {
-            console.log("Supabase Error:", result.error);
+        const { error } = await supabase
+            .from("applications")
+            .insert([
+                {
+                    data: application
+                }
+            ]);
+
+        if (error) {
+            console.log("Supabase Error:", error);
 
             return res.status(500).json({
                 success: false,
@@ -47,15 +56,16 @@ app.post("/submit-application", async (req, res) => {
             });
         }
 
-        return res.json({
+        res.json({
             success: true,
             message: "Application successfully save ho gaya."
         });
 
     } catch (error) {
+
         console.log("Server Error:", error);
 
-        return res.status(500).json({
+        res.status(500).json({
             success: false,
             message: "Application save nahi hua."
         });
@@ -64,16 +74,18 @@ app.post("/submit-application", async (req, res) => {
 
 // GET APPLICATIONS
 app.get("/applications", async (req, res) => {
+
     try {
-        const result = await supabase
+
+        const { data, error } = await supabase
             .from("applications")
             .select("*")
             .order("created_at", {
                 ascending: false
             });
 
-        if (result.error) {
-            console.log("Supabase Error:", result.error);
+        if (error) {
+            console.log("Supabase Error:", error);
 
             return res.status(500).json({
                 success: false,
@@ -81,20 +93,19 @@ app.get("/applications", async (req, res) => {
             });
         }
 
-        const applications = result.data.map(function (row) {
-            return {
-                id: row.id,
-                date: row.created_at,
-                ...(row.data || {})
-            };
-        });
+        const applications = data.map((row) => ({
+            id: row.id,
+            date: row.created_at,
+            ...(row.data || {})
+        }));
 
-        return res.json(applications);
+        res.json(applications);
 
     } catch (error) {
+
         console.log("Server Error:", error);
 
-        return res.status(500).json({
+        res.status(500).json({
             success: false,
             message: "Applications load nahi hui."
         });
@@ -103,12 +114,14 @@ app.get("/applications", async (req, res) => {
 
 // SERVER START
 if (process.env.VERCEL !== "1") {
-    app.listen(PORT, function () {
+
+    app.listen(PORT, () => {
         console.log("=================================");
         console.log("RELIANCE FINANCE SERVER");
         console.log("=================================");
         console.log("Server running on port " + PORT);
     });
+
 }
 
 module.exports = app;
