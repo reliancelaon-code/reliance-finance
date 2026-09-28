@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const { createClient } = require("@supabase/supabase-js");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,49 +10,51 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// PUBLIC FILES
 app.use(express.static(path.join(__dirname, "public")));
 
-// SUPABASE
-const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SECRET_KEY
-);
-
-// HOME PAGE
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// SUBMIT APPLICATION
+// SAVE APPLICATION
 app.post("/submit-application", async (req, res) => {
 
-    const application = req.body;
-
-    if (!application.name || !application.mobile) {
-        return res.status(400).json({
-            success: false,
-            message: "Name aur mobile number required hai."
-        });
-    }
-
     try {
+        const application = req.body;
 
-        const { error } = await supabase
-            .from("applications")
-            .insert([
-                {
-                    data: application
-                }
-            ]);
-
-        if (error) {
-            console.log("Supabase Error:", error);
-
-            return res.status(500).json({
+        if (!application.name || !application.mobile) {
+            return res.status(400).json({
                 success: false,
-                message: "Application save nahi hua."
+                message: "Name aur mobile number required hai."
             });
+        }
+
+        const url = process.env.SUPABASE_URL;
+        const key = process.env.SUPABASE_SECRET_KEY;
+
+        if (!url || !key) {
+            throw new Error("Supabase environment variables missing");
+        }
+
+        const response = await fetch(
+            ${url}/rest/v1/applications,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": key,
+                    "Authorization": Bearer ${key},
+                    "Prefer": "return=minimal"
+                },
+                body: JSON.stringify({
+                    data: application
+                })
+            }
+        );
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText);
         }
 
         res.json({
@@ -63,7 +64,7 @@ app.post("/submit-application", async (req, res) => {
 
     } catch (error) {
 
-        console.log("Server Error:", error);
+        console.log("APPLICATION ERROR:", error);
 
         res.status(500).json({
             success: false,
@@ -76,22 +77,29 @@ app.post("/submit-application", async (req, res) => {
 app.get("/applications", async (req, res) => {
 
     try {
+        const url = process.env.SUPABASE_URL;
+        const key = process.env.SUPABASE_SECRET_KEY;
 
-        const { data, error } = await supabase
-            .from("applications")
-            .select("*")
-            .order("created_at", {
-                ascending: false
-            });
-
-        if (error) {
-            console.log("Supabase Error:", error);
-
-            return res.status(500).json({
-                success: false,
-                message: "Applications load nahi hui."
-            });
+        if (!url || !key) {
+            throw new Error("Supabase environment variables missing");
         }
+
+        const response = await fetch(
+            ${url}/rest/v1/applications?select=*&order=created_at.desc,
+            {
+                headers: {
+                    "apikey": key,
+                    "Authorization": Bearer ${key}
+                }
+            }
+        );
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText);
+        }
+
+        const data = await response.json();
 
         const applications = data.map((row) => ({
             id: row.id,
@@ -103,7 +111,7 @@ app.get("/applications", async (req, res) => {
 
     } catch (error) {
 
-        console.log("Server Error:", error);
+        console.log("APPLICATIONS ERROR:", error);
 
         res.status(500).json({
             success: false,
@@ -112,16 +120,10 @@ app.get("/applications", async (req, res) => {
     }
 });
 
-// SERVER START
 if (process.env.VERCEL !== "1") {
-
     app.listen(PORT, () => {
-        console.log("=================================");
-        console.log("RELIANCE FINANCE SERVER");
-        console.log("=================================");
-        console.log("Server running on port " + PORT);
+        console.log("RELIANCE FINANCE SERVER RUNNING");
     });
-
 }
 
 module.exports = app;
