@@ -1355,7 +1355,8 @@ select {
     object-fit: contain;
     border-radius: 50%;
 }
-/* Mobile Menu */
+/* MOBILE HAMBURGER MENU */
+
 .menu-btn {
     display: none;
     background: none;
@@ -1365,16 +1366,37 @@ select {
 }
 
 @media (max-width: 600px) {
+
+    .header {
+        position: relative;
+    }
+
     .menu-btn {
         display: block;
+        margin-left: auto;
     }
 
-    .nav-links {
+    .navbar {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
         flex-direction: column;
+        padding: 15px;
+        z-index: 1000;
     }
 
-    .nav-links.active {
+    .navbar.active {
         display: flex;
+    }
+
+    .navbar a {
+        padding: 12px;
+        text-align: center;
+    }
+
+    .navbar .apply-btn {
+        margin: 10px auto;
     }
 }

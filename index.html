@@ -30,21 +30,25 @@
 
         </div>
 
+        <!-- MOBILE MENU BUTTON -->
+        <button class="menu-btn" id="menuBtn">☰</button>
 
-       <nav class="navbar">
-    <div class="logo">RELIANCE <span>FINANCE</span></div>
+        <!-- NAVIGATION -->
+        <nav class="navbar" id="navLinks">
 
-    <button class="menu-btn" id="menuBtn">☰</button>
+            <a href="/">Home</a>
 
-    <div class="nav-links" id="navLinks">
-        <a href="/">Home</a>
-        <a href="#loans">Loans</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
-    </div>
+            <a href="#loans">Loans</a>
 
-    <button class="apply-btn">Apply Now</button>
-</nav>
+            <a href="#about">About Us</a>
+
+            <a href="#contact">Contact</a>
+
+            <button class="apply-btn" id="navApplyBtn">
+                Apply Now
+            </button>
+
+        </nav>
 
     </header>
 
@@ -130,8 +134,6 @@
 
         <div class="loan-grid">
 
-
-            <!-- PERSONAL LOAN -->
             <div class="loan-card">
 
                 <div class="loan-icon">
@@ -154,7 +156,6 @@
             </div>
 
 
-            <!-- HOME LOAN -->
             <div class="loan-card">
 
                 <div class="loan-icon">
@@ -177,7 +178,6 @@
             </div>
 
 
-            <!-- BUSINESS LOAN -->
             <div class="loan-card">
 
                 <div class="loan-icon">
@@ -200,7 +200,6 @@
             </div>
 
 
-            <!-- STUDENT LOAN -->
             <div class="loan-card">
 
                 <div class="loan-icon">
@@ -223,7 +222,6 @@
             </div>
 
 
-            <!-- VEHICLE LOAN -->
             <div class="loan-card">
 
                 <div class="loan-icon">
@@ -267,7 +265,6 @@
 
 
         <div class="features">
-
 
             <div class="feature">
 
@@ -448,8 +445,6 @@
 
             <form id="loanForm">
 
-
-                <!-- NAME -->
                 <label>
                     Full Name
                 </label>
@@ -462,7 +457,6 @@
                 >
 
 
-                <!-- LOAN AMOUNT -->
                 <label>
                     Loan Amount
                 </label>
@@ -475,7 +469,6 @@
                 >
 
 
-                <!-- MOBILE -->
                 <label>
                     Mobile Number
                 </label>
@@ -489,7 +482,6 @@
                 >
 
 
-                <!-- EMAIL -->
                 <label>
                     Gmail / Email
                 </label>
@@ -502,7 +494,6 @@
                 >
 
 
-                <!-- STATE -->
                 <label>
                     State
                 </label>
@@ -529,7 +520,6 @@
                 </select>
 
 
-                <!-- LOAN TYPE -->
                 <label>
                     Loan Type
                 </label>
@@ -549,7 +539,6 @@
                 </select>
 
 
-                <!-- MONTHLY INCOME -->
                 <label>
                     Monthly Income
                 </label>
@@ -562,7 +551,6 @@
                 >
 
 
-                <!-- SUBMIT -->
                 <button
                     type="submit"
                     class="submit-btn"
@@ -609,6 +597,25 @@
         </div>
 
     </div>
+
+
+    <!-- MOBILE MENU SCRIPT -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+        const navItems = navLinks.querySelectorAll("a");
+
+        navItems.forEach(function (item) {
+            item.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+            });
+        });
+    </script>
 
 
     <script src="script.js?v=4"></script>
