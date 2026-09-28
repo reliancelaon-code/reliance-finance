@@ -1,9 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    // =========================
+    // MOBILE MENU
+    // =========================
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuBtn && navLinks) {
+
+        menuBtn.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+            });
+        });
+
+    }
+
+
+    // =========================
+    // LOAN MODAL
+    // =========================
+
     const loanModal = document.getElementById("loanModal");
     const closeBtn = document.getElementById("closeBtn");
 
     const applyBtn = document.getElementById("applyBtn");
+    const navApplyBtn = document.getElementById("navApplyBtn");
     const heroApplyBtn = document.getElementById("heroApplyBtn");
     const bottomApplyBtn = document.getElementById("bottomApplyBtn");
 
@@ -26,6 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (applyBtn) {
         applyBtn.addEventListener("click", openLoanForm);
+    }
+
+    if (navApplyBtn) {
+        navApplyBtn.addEventListener("click", openLoanForm);
     }
 
     if (heroApplyBtn) {
@@ -81,13 +112,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    // =========================
     // SUBMIT FORM
+    // =========================
+
     if (loanForm) {
 
         loanForm.addEventListener("submit", async function (event) {
 
             event.preventDefault();
-
 
             const application = {
 
@@ -118,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!application.name) {
 
                 alert("Please enter your name.");
-
                 return;
 
             }
@@ -128,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!/^[0-9]{10}$/.test(application.mobile)) {
 
                 alert("Please enter a valid 10-digit mobile number.");
-
                 return;
 
             }
@@ -138,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!application.email) {
 
                 alert("Please enter your email.");
-
                 return;
 
             }
@@ -148,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!application.loanAmount) {
 
                 alert("Please enter loan amount.");
-
                 return;
 
             }
@@ -176,20 +205,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 // SUCCESS
                 if (result.success) {
 
-                    // FORM RESET
                     loanForm.reset();
 
-
-                    // CLOSE APPLICATION FORM
                     loanModal.style.display = "none";
                     document.body.style.overflow = "auto";
 
-
-                    // SHOW WEBSITE SUCCESS MESSAGE
                     if (successMessage) {
-
                         successMessage.style.display = "flex";
-
                     }
 
                 }
